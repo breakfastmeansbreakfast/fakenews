@@ -15,6 +15,7 @@ class Question extends Component {
       <Radio name="radioGroup" inline>
         Legit
       </Radio>{' '}
+      
       </form>      
       </div>
     )
