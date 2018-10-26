@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter as Router, Switch, NavLink} from 'react-router-dom'
@@ -7,27 +8,7 @@ import Question from './Question';
 import About from './About'
 import Learn from './Learn';
 import notfound from './notfound';
-
-import * as serviceWorker from './serviceWorker';
-
-/*const path = require('path');
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-
-
-require('dotenv').config({
-  path: path.join(__dirname, './settings.env'),
-});
-
-const app = express();
-mongoose.connect(process.env.DATABASE_CONN, { useNewUrlParser: true });
-app.use(bodyParser.json())
-app.get('/', (req, res) => res.send('Hello MongoDb!'));
-
-app.listen(3000, () => console.log('It works!'));
-*/
-
+// import * as serviceWorker from './serviceWorker';
 
 const routing = (
   <Router>
@@ -61,4 +42,4 @@ ReactDOM.render(routing, document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// serviceWorker.unregister();
