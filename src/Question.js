@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Radio} from 'react-bootstrap'
-const headline = "Is it Fake or Is it Real!";
 import axios from 'axios';
+const headline = "Is it Fake or Is it Real!";
 
-headlines = {
+let headlines = {
   headline1: {
     headlineID: 1,
     headline: "The first headline",
