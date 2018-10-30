@@ -4,6 +4,30 @@ import {Radio} from 'react-bootstrap'
 const headline = "Is it Fake or Is it Real!";
 import axios from 'axios';
 
+headlines = {
+  headline1: {
+    headlineID: 1,
+    headline: "The first headline",
+    leftOrRight: "L",
+    source: "www.bbc.co.uk",
+    descripion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis finibus justo. Sed tincidunt arcu nunc, ac egestas nulla pellentesque pretium. Donec id pretium justo. Ut vitae felis eget mi blandit pretium. In vel consequat risus. Aenean nec sodales nisl, non rhoncus velit. Integer faucibus massa vitae gravida porta. Donec nec ornare nulla. Nullam condimentum semper magna, et sagittis massa.",
+  },
+  headline2: {
+    headlineID: 2,
+    headline: "The second headline",
+    leftOrRight: "R",
+    source: "www.lbc.co.uk",
+    descripion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis finibus justo. Sed tincidunt arcu nunc, ac egestas nulla pellentesque pretium. Donec id pretium justo. Ut vitae felis eget mi blandit pretium. In vel consequat risus. Aenean nec sodales nisl, non rhoncus velit. Integer faucibus massa vitae gravida porta. Donec nec ornare nulla. Nullam condimentum semper magna, et sagittis massa.",
+  },
+  headline3: {
+    headlineID: 3,
+    headline: "The third headline",
+    leftOrRight: "L",
+    source: "www.bumface.co.uk",
+    descripion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis finibus justo. Sed tincidunt arcu nunc, ac egestas nulla pellentesque pretium. Donec id pretium justo. Ut vitae felis eget mi blandit pretium. In vel consequat risus. Aenean nec sodales nisl, non rhoncus velit. Integer faucibus massa vitae gravida porta. Donec nec ornare nulla. Nullam condimentum semper magna, et sagittis massa.",
+  }
+}
+
 //let headline = "Test headline!";
 
 /*axios.get(`http://localhost:9999/question`)
