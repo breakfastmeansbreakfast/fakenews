@@ -24,7 +24,7 @@ class Learn extends Component {
       In the 20th century, new forms of mass communication allowed propaganda's scale and persuasive power to grow, particularly during wartime and in fascist regimes.
       <br/>This sort of propaganda was largely funded and controlled by governments, but the blatant bias it carried waned as the ideological struggles became less apparent.<br/>Added to that, as populations became more used to mass communication, they could more easily see through it.  
       </p>
-      <h3>How to spot it! </h3>
+      <br />
       <Grid>
         <Row>
           <Col xs={6} md={4}>

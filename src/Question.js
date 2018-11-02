@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Radio} from 'react-bootstrap'
-const headline = "Is it Fake or Is it Real!";
 import axios from 'axios';
+const headline = "Is it Fake or Is it Real!";
 
-headlines = {
+/*let headlines = {
   headline1: {
     headlineID: 1,
     headline: "The first headline",
@@ -110,7 +110,7 @@ class Question extends Component {
       </Radio>{' '} 
       </form>   
       <form>
-      <img src={require("./images/trump1.jpg")} alt="article" />
+      <img src={require("./images/fakenews5.jpg")} alt="article" />
       <Radio name="radioGroup" inline>
         Fake
       </Radio>{''}
@@ -118,6 +118,42 @@ class Question extends Component {
         Legit
       </Radio>{' '} 
       </form>   
+      <form>
+      <img src={require("./images/fakenews6.jpg")} alt="article" />
+      <Radio name="radioGroup" inline>
+        Fake
+      </Radio>{''}
+      <Radio name="radioGroup" inline>
+        Legit
+      </Radio>{' '} 
+      </form> 
+      <form>
+      <img src={require("./images/fakenews7.jpg")} alt="article" />
+      <Radio name="radioGroup" inline>
+        Fake
+      </Radio>{''}
+      <Radio name="radioGroup" inline>
+        Legit
+      </Radio>{' '} 
+      </form> 
+      <form>
+      <img src={require("./images/fakenews8.jpg")} alt="article" />
+      <Radio name="radioGroup" inline>
+        Fake
+      </Radio>{''}
+      <Radio name="radioGroup" inline>
+        Legit
+      </Radio>{' '} 
+      </form> 
+      <form>
+      <img src={require("./images/fakenews5.jpg")} alt="article" />
+      <Radio name="radioGroup" inline>
+        Fake
+      </Radio>{''}
+      <Radio name="radioGroup" inline>
+        Legit
+      </Radio>{' '} 
+      </form> 
       </div>
     )
   }
