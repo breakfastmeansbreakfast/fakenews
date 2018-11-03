@@ -7,6 +7,7 @@ const title = "Fake News";
 class Learn extends Component {
   render() {
     return (
+      
       <div className="Learnarea">
       <h1>{title}</h1>
       <Alert>What is Fake News?</Alert>

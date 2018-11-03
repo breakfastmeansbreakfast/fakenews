@@ -4,7 +4,11 @@ import {Radio} from 'react-bootstrap'
 import axios from 'axios';
 const headline = "Is it Fake or Is it Real!";
 
+<<<<<<< HEAD
 /*let headlines = {
+=======
+let headlines = {
+>>>>>>> dd07cf868cd36cca75b7c4181f3a23063379f286
   headline1: {
     headlineID: 1,
     headline: "The first headline",
