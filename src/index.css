@@ -6,9 +6,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #282c34;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.nav li {
+  display: inline-block;
+  padding: 10px;
+}
+
+.App p {
+  font-size: 14px;
 }
