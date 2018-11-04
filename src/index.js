@@ -8,11 +8,12 @@ import Question from './Question';
 import About from './About'
 import Learn from './Learn';
 import notfound from './notfound';
+import Results from './Results';
 // import * as serviceWorker from './serviceWorker';
 
 const routing = (
   <Router>
-    <div>
+    <div className="nav">
     <ul>
         <li>
           <NavLink exact activeClassName="active" to="/">Home</NavLink>
@@ -31,6 +32,7 @@ const routing = (
       <Route path="/about" component={About} />
       <Route path="/learn" component={Learn} />
       <Route path="/questions" component={Question} />
+      <Route path="/results" component={Results} />
       <Route component={notfound} />
       </Switch>
     </div>
