@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Radio, Button} from 'react-bootstrap';
+import {Alert, Radio, Button} from 'react-bootstrap';
 // import axios from 'axios';
 
 /*axios.get(`http://localhost:9999/question`)
@@ -22,30 +22,23 @@ class Question extends Component {
   state = {
     currentQuestionIndex: 0,
     selectedAnswer: 0,
+    answerCheck: true,
+    clearCheck: true,
     headlines: [
-      {
-        headlineID: 0,
-        headline: "Influx of immigrants costs every UK household £350 a year",
-        answer: "fake",
-        leftOrRight: "R",
-        source: "Daily Mail (2007)",
-        sourceurl: "https://www.dailymail.co.uk/news/article-488011/Influx-immigrants-costs-UK-household-350-year.html",
-        proofurl: "",
-        descripion: "Labour's 'open door' policy on immigration costs every household £350 a year, it was claimed yesterday. David Coleman, an Oxford University academic, puts the total annual bill to the taxpayer at almost £8.8billion. In a submission to a House of Lords committee, he said there had been an 'absent-minded commitment' to increase the population by one million every five years...",
-      },
      {
-        headlineID: 1,
-        headline: "Trump ramps up rhetoric on undocumented immigrants: 'These aren't people. These are animals.'",
+        headlineID: 0,
+        headline: "Trump once compared undocumented immigrants to animals.",
         answer: "legit",
         leftOrRight: "L",
-        source: "USA Today (2017)",
+        source: "Reported by USA Today",
         sourceurl: "",
         proofurl: null,
-        descripion: "President Trump used extraordinarily harsh rhetoric to renew his call for stronger immigration laws Wednesday, calling undocumented immigrants 'animals' and venting frustration at Mexican officials who he said 'do nothing' to help the United States.",
+        explainer: "Yes, Trump did say this word for word. He said, 'These aren't people. These are animals'",
+        descripion: "",
       },
       {
-        headlineID: 2,
-        headline: "Brexit Dividend to provide extra funding for the NHS",
+        headlineID: 1,
+        headline: "Brexit Dividend will provide extra funding for the NHS",
         answer: "fake",
         leftOrRight: "R",        
         source: "Theresa May as Prime Minister (2018)",
@@ -54,7 +47,7 @@ class Question extends Component {
         descripion: "[....] No more sending vast sums of money each year to the EU – instead a Brexit dividend to spend on domestic priorities like our long-term plan for the NHS.",
       },
       {
-        headlineID: 3,
+        headlineID: 2,
         headline: "Australia is moving further north",
         answer: "legit",
         leftOrRight: "N",        
@@ -64,7 +57,7 @@ class Question extends Component {
         descripion: "",
       },
       {
-        headlineID: 4,
+        headlineID: 3,
         headline: "Pope Francis has Backed president Trump",
         answer: "fake",
         leftOrRight: "R",        
@@ -74,7 +67,7 @@ class Question extends Component {
         descripion: "",
       },
       {
-        headlineID: 5,
+        headlineID: 4,
         headline: "Trump wanted to ban all muslims from the US",
         answer: "fake",
         leftOrRight: "R",        
@@ -84,7 +77,7 @@ class Question extends Component {
         descripion: "",
       },
       {
-        headlineID: 6,
+        headlineID: 5,
         headline: "Leaving the EU will generate £350m a week for Britain, which could be spent towards the NHS",
         answer: "fake",
         leftOrRight: "R",        
@@ -92,6 +85,17 @@ class Question extends Component {
         sourceurl: null,
         proofurl: "https://davidbuckingham.net/2017/01/12/fake-news-is-media-literacy-the-answer/",
         descripion: "",
+      },
+      {
+        headlineID: 6,
+        headline: "Influx of immigrants costs every UK household £350 a year",
+        answer: "fake",
+        leftOrRight: "R",
+        source: "Daily Mail (2007)",
+        sourceurl: "https://www.dailymail.co.uk/news/article-488011/Influx-immigrants-costs-UK-household-350-year.html",
+        proofurl: "https://fullfact.org/immigration/how-immigrants-affect-public-finances/",
+        explainer: "This one isn't so straightforward. Although there is a source provided, it is only one person and not a research group. The retoric of the story also fits in well with the tone of the Daily Mail, which should throw up alarm bells. There now seems to be a universal consensus that immegrants to the UK actually have a net positive effect on the economy. See the FullFact link below for more information",
+        descripion: "Labour's 'open door' policy on immigration costs every household £350 a year, it was claimed yesterday. David Coleman, an Oxford University academic, puts the total annual bill to the taxpayer at almost £8.8billion. In a submission to a House of Lords committee, he said there had been an 'absent-minded commitment' to increase the population by one million every five years...",
       },
       {
         headlineID: 7,
@@ -182,6 +186,7 @@ class Question extends Component {
     let responses = myhistory
     this.setState({responses}); 
     this.setState({selectedAnswer: 0})
+    this.setState({clearCheck: true})
   }
 
   validation = () => {
@@ -190,6 +195,20 @@ class Question extends Component {
       return false}
       else {return true}
   }
+
+  renderCheck = () => {
+    if (this.validation() === false) {console.log('input not selected')} else {
+    let answer = this.state.headlines[this.state.currentQuestionIndex].answer
+    const selectedAnswer = this.state.selectedAnswer
+    let check = 0
+    selectedAnswer === answer ? check = true : check = false
+    if (check === true) {
+      this.setState({answerCheck: true})
+      this.setState({clearCheck: false})
+    } else {
+    this.setState({answerCheck: false})
+    this.setState({clearCheck: false})
+  }}}
   
   nextQuestion = () => {
     if (this.validation() === false) {console.log('input not selected')} else {
@@ -209,23 +228,44 @@ class Question extends Component {
     for (var i = 0; i < headlineArray.length; ++i) {
       if (responseArray[i].answer == headlineArray[i].answer) {
         score +=1
-      } else {
-      console.log('wrong answer');
       }
     }
-    console.log(score)
   return score;
   }
-
+  
+ 
   render() {
     let currentquestion = this.state.headlines[this.state.currentQuestionIndex]
+    let button
+    if (this.state.clearCheck) {
+      button = <Button bsStyle="warning" type="submit" href="#" onClick={this.renderCheck}>Check</Button>
+    } else {
+      button = <Button bsStyle="primary" type="submit" href="#" onClick={this.nextQuestion}>Next Question</Button>
+    }
+
+    let useralert = () => {if (this.state.answerCheck === false) {
+      useralert = <Alert bsStyle='danger'><strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.</Alert>
+    } else {
+      useralert = <Alert bsStyle='success'><strong>You got it correct!</strong></Alert>
+    }}
+
+    let explainer = () => {if (this.state.answerCheck === false) {
+      console.log(this.state.headlines[this.state.currentQuestionIndex].explainer)
+      explainer = <p></p>
+    } else {
+      explainer = <p>{this.state.headlines[this.state.currentQuestionIndex].explainer}</p>
+    }}
+
+    if (!this.state.clearCheck) {
+      useralert()
+   }
+
     return (
       <div className="questionArea">
       <h1>{currentquestion.headline}</h1>
       <strong>{currentquestion.source}</strong>
       <p>{currentquestion.descripion}</p>
       <form>
-      {/* <img src={require(this.state.currentquestion.imageUrl)} alt={this.state.currentquestion.headline} /> */}
       <Radio className="radiobuttonfake" value="fake" checked={this.state.selectedAnswer === 'fake'} onChange={this.handleChange} inline>
         Fake
       </Radio>{''}
@@ -233,8 +273,10 @@ class Question extends Component {
         Legit
       </Radio>{''}
       <br /> <br /> <br />
-      <Button bsStyle="warning" type="submit" href="#" onClick={this.nextQuestion}>Submit</Button>
-      </form>      
+      {useralert}<br />
+      {button}<br />
+      <strong>{!this.state.clearCheck ? this.state.headlines[this.state.currentQuestionIndex].explainer : <p></p> }</strong>
+      </form><br />
       </div>
     )
   }
