@@ -8,45 +8,63 @@ class Question extends Component {
     selectedAnswer: 0,
     answerCheck: true,
     clearCheck: true,
+    leftScore: 0,
+    rightScore: 0,
     headlines: [
      {
         headlineID: 0,
         headline: "Trump ramps up rhetoric on undocumented immigrants: 'These aren't people. These are animals.'",
         answer: "fake",
-        leftOrRight: "L",
+        leftOrRight: "N",
         source: "Reported by USA Today",
         sourceurl: "",
+        fakeleftBias: 0,
+        fakerightBias: 0,
+        legitrightBias: 0,
+        legitleftBias: 0,
         proofurl: "https://www.bbc.co.uk/news/av/world-us-canada-44148697/trump-immigrant-gangs-animals-not-people",
         explainer: "Surprise! If you listen to his speach, Trump was not comparing all immegrants to animals, only the ones in 'problem' gangs.",
-        descripion: "",
+        descripion: "Do you think Trump said this or has he been misquoted?",
       },
       {
         headlineID: 1,
         headline: "Brexit Dividend will provide extra funding for the NHS",
         answer: "fake",
-        leftOrRight: "R",        
+        leftOrRight: "L",        
         source: "Theresa May as Prime Minister (2018)",
         sourceurl: null,
+        fakeleftBias: 1,
+        fakerightBias: 0,
+        legitrightBias: 1,
+        legitleftBias: 3,
         explainer: "This has been widely refuted and is now considered by many to be misleading.",
         proofurl: "https://www.ft.com/content/845f9e56-cd4c-11e8-9fe5-24ad351828ab",
-        descripion: "[....] No more sending vast sums of money each year to the EU – instead a Brexit dividend to spend on domestic priorities like our long-term plan for the NHS.",
+        descripion: "Theresa is saying that after we finish sending vast sums of money each year to the EU we will instead a Brexit dividend to spend on domestic priorities like our long-term plan for the NHS. Do you think this is a legitimate statement or could it be misleading?",
       },
       {
         headlineID: 2,
         headline: "Australia is moving further north, meaning many will have to adjust their sat navs in the future.",
         answer: "legit",
         leftOrRight: "N",
+        fakeleftBias: 0,
+        fakerightBias: 0,
+        legitrightBias: 0,
+        legitleftBias: 0,
         source: "A guy in the pub",
         sourceurl: null,
         explainer: "Umm, yep, technically the contenant of Austrialia is moving further north so this is true.",
         proofurl: "https://www.bbc.co.uk/cbbc/quizzes/real-or-fake-news-quiz",
-        descripion: "",
+        descripion: "I mean, it's a guy in the pub so...",
       },
       {
         headlineID: 3,
         headline: "Pope Francis has Backed president Trump",
         answer: "fake",
-        leftOrRight: "R",        
+        leftOrRight: "L", 
+        fakeleftBias: 0,
+        fakerightBias: 0,
+        legitrightBias: 0,
+        legitleftBias: 0,      
         source: "www.dailypresser.com",
         sourceurl: null,
         explainer: "As Trump would say, NEVER HAPPENED, OK. Seriously, despite this fake, it did not stop the story from potentially being seen by thousands of users on Facebook.",
@@ -57,28 +75,40 @@ class Question extends Component {
         headlineID: 4,
         headline: "German Chancellor Angela Merkel calls for German-Led EU army",
         answer: "fake",
-        leftOrRight: "R",        
+        leftOrRight: "L",
+        fakeleftBias: 1,
+        fakerightBias: 0,
+        legitrightBias: 3,
+        legitleftBias: 0,
         source: "Daily Express",
         sourceurl: "https://www.express.co.uk/news/world/753750/Angela-Merkel-Germany-EU-army-Trump-Brexit",
         explainer: "Fake! This was 'corrected' by The Express after many months, the orignal story that claimed that German Chancellor Angela Merkel was calling for an EU army to defend Europe had no real substantiation for the claims but nonetheless was picked up by several other news outlets as well as social media users.",
         proofurl: "https://inews.co.uk/opinion/top-ten-fake-misleading-news-stories-2017/",
-        descripion: "ANGELA Merkel has renewed her call for the European Union to have its own army, warning the bloc will not be able to rely on others to guarantee its security with Donald Trump in the White House and Britain set to leave.",
+        descripion: "According to the Daily Express, Angela Merkel has renewed her call for the European Union to have its own army, warning the bloc will not be able to rely on others to guarantee its security with Donald Trump in the White House and Britain set to leave. Do you think this is a fair statement or has she been misqouted?",
       },
       {
         headlineID: 5,
         headline: "Trump wanted to ban all muslims from the US",
         answer: "fake",
-        leftOrRight: "R",        
+        leftOrRight: "L",
+        fakeleftBias: 0,
+        fakerightBias: 1,
+        legitrightBias: 0,
+        legitleftBias: 2,
         source: "Panel show guest on TV",
         sourceurl: null,
         explainer: "Trump's widely condemned 'Muslim Ban' was an interesting one. Technically he did not 'ban all muslims' as reported, instead banning countries which had a high Muslim population. However some will say that he was deliberatly vague, in order to fit in with the ideals of his far right core support.",
         proofurl: "https://davidbuckingham.net/2017/01/12/fake-news-is-media-literacy-the-answer/",
-        descripion: "",
+        descripion: "Is this opinion based on fact or not?",
       },
       {
         headlineID: 6,
         headline: "Leaving the EU will generate £350m a week for Britain, which could be spent towards the NHS",
         answer: "fake",
+        fakeleftBias: 1,
+        fakerightBias: 0,
+        legitrightBias: 3,
+        legitleftBias: 0,
         leftOrRight: "R",        
         source: "Leave.eu, and on the side of a Bus",
         sourceurl: null,
@@ -90,18 +120,26 @@ class Question extends Component {
         headlineID: 7,
         headline: "Influx of immigrants costs every UK household £350 a year",
         answer: "fake",
+        fakeleftBias: 1,
+        fakerightBias: 0,
+        legitrightBias: 3,
+        legitleftBias: 0,
         leftOrRight: "R",
         source: "Daily Mail (2007)",
         sourceurl: "https://www.dailymail.co.uk/news/article-488011/Influx-immigrants-costs-UK-household-350-year.html",
         proofurl: "https://fullfact.org/immigration/how-immigrants-affect-public-finances/",
         explainer: "This one isn't so straightforward. Although there is a source provided, it is only one person and not a research group. The retoric of the story also fits in well with the tone of the Daily Mail, which should throw up alarm bells. There now seems to be a universal consensus that immegrants to the UK actually have a net positive effect on the economy. See the FullFact link below for more information",
-        descripion: "Labour's 'open door' policy on immigration costs every household £350 a year, it was claimed yesterday. David Coleman, an Oxford University academic, puts the total annual bill to the taxpayer at almost £8.8billion. In a submission to a House of Lords committee, he said there had been an 'absent-minded commitment' to increase the population by one million every five years...",
+        descripion: "The Daily Mail is saying here that immigration costs the country money. It goes on to say, Labour's 'open door' policy on immigration costs every household £350 a year, it was claimed yesterday. David Coleman, an Oxford University academic, puts the total annual bill to the taxpayer at almost £8.8billion. In a submission to a House of Lords committee, he said there had been an 'absent-minded commitment' to increase the population by one million every five years...",
       },
       {
         headlineID: 8,
         headline: "Sadiq Khan gets reprimanded by the Queen for his comments on Trump",
         answer: "fake",
         leftOrRight: "R",
+        fakeleftBias: 0,
+        fakerightBias: 0,
+        legitrightBias: 1,
+        legitleftBias: 0,
         source: "Multiple US pulications",
         sourceurl: null,
         explainer: "FAKE. The Queen has to remain impartial on items like this, and this was no exception. Arguably Trump's comments and lies about Sadqiq were more derogatory.",
@@ -109,8 +147,6 @@ class Question extends Component {
         descripion: "Sadiq Khan had been reprimanded by the Queen for his comments and that the UK media were in support of his telling off.",
       },
     ],
-    leftScore: 0,
-    rightScore: 0,
     responses: [
       {
         answer: null,
@@ -190,30 +226,74 @@ class Question extends Component {
     this.setState({answerCheck: false})
     this.setState({clearCheck: false})
   }}}
-  
+
+  // getScore = () => {
+  //   let responseArray = this.state.responses
+  //   let headlineArray = this.state.headlines
+  //   let score = 0;
+  //   let leftScore = 0;
+  //   let rightScore = 0;
+  //   for (var i = 0; i < headlineArray.length; ++i) {// eslint-disable-next-line
+  //     if (responseArray[i].answer == headlineArray[i].answer) {
+  //       score +=1
+  //       leftScore += headlineArray[i].leftBias
+  //       rightScore += headlineArray[i].rightBias
+  //       /*if (headlineArray[i].leftOrRight === "L") {
+  //         leftScore +=1
+  //       } else if (headlineArray[i].leftOrRight === "R") {
+  //         rightScore += 1
+  //       }*/
+  //     }
+  //   }
+  //   this.setState({leftScore: leftScore})
+  //   this.setState({rightScore: rightScore})
+  //   console.log(leftScore);
+  //   console.log(rightScore);
+  // return score;
+  // }
+
   nextQuestion = () => {
     if (this.validation() === false) {console.log('input not selected')} else {
     if (this.state.currentQuestionIndex === this.state.headlines.length -1) {
       this.savetoHistory()
-      let score = this.getScore()
-      this.props.history.push({pathname: '/results', state: {score: score, message: `Well.. your results are in! You scored ${score} out of 9.`}});
+      //let score = this.getScore()
+
+      //START BLOCK
+      let responseArray = this.state.responses
+      let headlineArray = this.state.headlines
+      let score = 0;
+      let leftScore = 0;
+      let rightScore = 0;
+      for (var i = 0; i < headlineArray.length; ++i) {// eslint-disable-next-line
+        if (responseArray[i].answer == headlineArray[i].answer) {
+          score +=1
+          //leftScore += headlineArray[i].leftBias
+          //rightScore += headlineArray[i].rightBias
+          /*if (headlineArray[i].leftOrRight === "L") {
+            leftScore +=1
+          } else if (headlineArray[i].leftOrRight === "R") {
+            rightScore += 1
+          }*/
+        }
+        if (responseArray[i].answer == 'fake') {
+          rightScore += headlineArray[i].fakerightBias
+          leftScore += headlineArray[i].fakeleftBias
+        } else if (responseArray[i].answer == 'legit') {
+          rightScore += headlineArray[i].legitrightBias
+          leftScore += headlineArray[i].legitleftBias
+        }
+      }
+      console.log(leftScore)
+      console.log(rightScore)
+      this.setState({leftScore: leftScore})
+      this.setState({rightScore: rightScore})
+    //END BLOCK
+
+      this.props.history.push({pathname: '/results', state: {rightScore: rightScore, leftScore: leftScore, score: score, message: `Well.. your results are in! You scored ${score} out of 9.`}});
     } else {
     this.savetoHistory()
     this.setState({currentQuestionIndex: this.state.currentQuestionIndex +1})
-  }}}
-
-  getScore = () => {
-    let responseArray = this.state.responses
-    let headlineArray = this.state.headlines
-    let score = 0;
-    for (var i = 0; i < headlineArray.length; ++i) {// eslint-disable-next-line
-      if (responseArray[i].answer == headlineArray[i].answer) {
-        score +=1
-      }
-    }
-  return score;
-  }
-  
+  }}}  
  
   render() {
     let currentquestion = this.state.headlines[this.state.currentQuestionIndex]
