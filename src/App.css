@@ -83,11 +83,15 @@
 }
 .questionArea {
   border: 1px solid seagreen;
-  width:  70vmin;
   margin: 30px;
   padding: 15px;
   background: #fff;
 }
+
+@media screen and (min-width: 800px) {
+  .questionArea {
+    width:  90vmin;
+}}
 
 .divheadline {
   font-family: 'Merriweather', serif;
