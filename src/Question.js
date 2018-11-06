@@ -196,7 +196,7 @@ class Question extends Component {
     if (this.state.currentQuestionIndex === this.state.headlines.length -1) {
       this.savetoHistory()
       let score = this.getScore()
-      this.props.history.push({pathname: '/results', state: {score: score, message: `Well.. your results are in! You scored ${score} out of 9.`, responses: this.state.responses, headlines: this.state.headlines}});
+      this.props.history.push({pathname: '/results', state: {score: score, message: `Well.. your results are in! You scored ${score} out of 9.`}});
     } else {
     this.savetoHistory()
     this.setState({currentQuestionIndex: this.state.currentQuestionIndex +1})
