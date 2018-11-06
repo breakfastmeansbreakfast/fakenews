@@ -146,7 +146,25 @@ class Question extends Component {
       </Radio>{' '} 
       </form> 
       <form>
-      <img src={require("./images/fakenews5.jpg")} alt="article" />
+      <img src={require("./images/fakenews9.jpg")} alt="article" />
+      <Radio name="radioGroup" inline>
+        Fake
+      </Radio>{''}
+      <Radio name="radioGroup" inline>
+        Legit
+      </Radio>{' '} 
+      </form> 
+      <form>
+      <img src={require("./images/fakenews10.jpg")} alt="article" />
+      <Radio name="radioGroup" inline>
+        Fake
+      </Radio>{''}
+      <Radio name="radioGroup" inline>
+        Legit
+      </Radio>{' '} 
+      </form> 
+      <form>
+      <img src={require("./images/fakenews11.jpg")} alt="article" />
       <Radio name="radioGroup" inline>
         Fake
       </Radio>{''}

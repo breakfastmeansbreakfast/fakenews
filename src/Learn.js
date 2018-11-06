@@ -7,10 +7,10 @@ const title = "Fake News";
 class Learn extends Component {
   render() {
     return (
-      
-      <div className="Learnarea">
+       <div className="Learnarea">
       <h1>{title}</h1>
       <Alert>What is Fake News?</Alert>
+      <p style={{fontSize:'15px', textAlign:'center'}}></p>;
       <p>"Fake news" was not a term many people used two years ago, but it is now seen as one of the greatest threats to democracy, free debate and the Western order.
       <br/>As well as being a favourite term of Donald Trump, it was also named 2017's word of the year, raising tensions between nations, and may lead to regulation of social media.
       <br/>And yet, nobody can agree on what it is, the extent of the problem, and what to do about it. Here's everything you need to know.</p>
