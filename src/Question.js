@@ -23,7 +23,7 @@ class Question extends Component {
         legitrightBias: 0,
         legitleftBias: 0,
         proofurl: "https://www.bbc.co.uk/news/av/world-us-canada-44148697/trump-immigrant-gangs-animals-not-people",
-        explainer: "Surprise! If you listen to his speach, Trump was not comparing all immegrants to animals, only the ones in 'problem' gangs.",
+        explainer: "Surprise! If you listen to his speech, Trump was not comparing all immigrants to animals, only the ones in 'problem' gangs.",
         descripion: "Do you think Trump said this or has he been misquoted?",
       },
       {
@@ -52,7 +52,7 @@ class Question extends Component {
         legitleftBias: 0,
         source: "A guy in the pub",
         sourceurl: null,
-        explainer: "Umm, yep, technically the contenant of Austrialia is moving further north so this is true.",
+        explainer: "Umm, yep, technically the continent of Austrialia is moving further north so this is true.",
         proofurl: "https://www.bbc.co.uk/cbbc/quizzes/real-or-fake-news-quiz",
         descripion: "I mean, it's a guy in the pub so...",
       },
@@ -330,8 +330,10 @@ class Question extends Component {
       {useralert}<br />
       <p>
       {!this.state.clearCheck ? <h3>Explainer:</h3> : null } 
-      {!this.state.clearCheck ? this.state.headlines[this.state.currentQuestionIndex].explainer : null } <br />
-      {!this.state.clearCheck ? this.state.headlines[this.state.currentQuestionIndex].proofurl : null } <br /> <br />
+      {!this.state.clearCheck ? this.state.headlines[this.state.currentQuestionIndex].explainer : null } <br /> <br />
+      {!this.state.clearCheck ? <p>Proof:</p> : null}
+      <a href={!this.state.clearCheck ? this.state.headlines[this.state.currentQuestionIndex].proofurl : null } >{!this.state.clearCheck ? this.state.headlines[this.state.currentQuestionIndex].proofurl : null }</a>
+       <br /> <br />
       </p>
       {button}<br />
 
